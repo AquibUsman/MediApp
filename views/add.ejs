@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> AddItem</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include navigation/nav.ejs %>
+</head>
+<body>
+<br>
+<div ng-app="addApp" ng-controller="addCtrl" align="centre">
+<form ng-submit="submit()">
+    NAME: <input type="text" ng-model="data.name" name="text" id="name"/>
+    <br>
+    <br>
+    CATEGORY: <input type="text" ng-model="data.category" name="text" id="cat"/>
+    <input type="submit" id="submit" value="Add" />
+</form>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+</div>
+<p id="hu"></p>
+<script> var app = angular.module('addApp', []);
+    app.controller('addCtrl', function($scope,$http) {
+        $scope.data = {};
+        $scope.resp = {};
+        $scope.submit = function () {
+            if ($scope.data.name != null && $scope.data.category != null) {
+                $http({
+                    url: '/additem',
+                    method: 'POST',
+                    data: $scope.data
+                }).then(function (resp) {
+                    if (resp.data=="error"){
+
+                        window.alert("Item Already Exists");
+                        document.getElementById("name").value="";
+                        document.getElementById("cat").value="";
+                    }
+                    else
+                        document.getElementById("hu").innerHTML = resp.data;
+                })
+            }
+            else
+                window.alert("Enter details!!");
+        }
+    });
+</script>
+</body>
+</html>

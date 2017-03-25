@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Admin Panel</h2>
+  
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#menu0">New User</a></li>
+    <li><a data-toggle="pill" href="#menu1">View All Users</a></li>
+    
+  </ul>
+  
+  <div class="tab-content">
+    <div id="menu0" class="tab-pane fade in active">
+      <h3>New user</h3>
+      <div class="row">
+        <div class="col-lg-6">
+         <hr>
+
+	<!-- show any messages that come back with authentication -->
+	<% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+
+	<!-- LOGIN FORM -->
+	<form action="/signup" method="post">
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" name="username">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" name="password">
+		</div>
+
+		<button type="submit" class="login-btn btn btn-default">Signup</button>
+	</form>
+
+	<hr>
+          </div>
+        </div>
+    </div>
+      
+      
+      
+      
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+      
+      
+   
+  </div>
+</div>
+
+</body>
+</html>
