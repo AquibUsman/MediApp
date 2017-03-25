@@ -1,7 +1,6 @@
 // app/routes.js
 var mysql = require('mysql')
-require('rootpath')();
-var dbconfig= require('config/database.js')
+var dbconfig= require('./database')
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
 module.exports = function(app, passport) {
