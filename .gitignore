@@ -1,4 +1,4 @@
 npm-debug.log
 node_modules
-config/database.js
-routes/databse.js
+/routes/database.js
+/config/databse.js
